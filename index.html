@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원 목록</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 8px; border-bottom: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>회원 목록</h1>
+  <ul id="memberList"></ul>
+
+  <script>
+    // API 서버 주소: 백엔드 서버가 실행 중이어야 합니다.
+    const apiUrl = 'http://localhost:3000/members';
+
+    // 페이지 로드 시 회원 목록을 가져오는 함수
+    function loadMembers() {
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          const list = document.getElementById('memberList');
+          list.innerHTML = ''; // 기존 목록 초기화
+          data.forEach(member => {
+            const li = document.createElement('li');
+            li.textContent = `${member.id}: ${member.회원명} (${member.아이디})`;
+            list.appendChild(li);
+          });
+        })
+        .catch(error => console.error('에러:', error));
+    }
+
+    // 페이지 로드 시 회원 목록을 불러옵니다.
+    window.onload = loadMembers;
+  </script>
+</body>
+</html>

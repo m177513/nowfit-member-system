@@ -1,0 +1,11 @@
+Method,Endpoint,Summary,Tag,File
+GET,/api/members,전체 회원 조회,Members,memberRoutes.js
+POST,/api/members,회원 등록,Members,memberRoutes.js
+PATCH,/api/members/{id}/status,회원 상태 변경,Members,memberRoutes.js
+PATCH,/api/members/{id}/points,회원 포인트 변경,Members,memberRoutes.js
+GET,/api/members/search,회원 검색,Members,memberRoutes.js
+POST,/api/attendance,출석 등록,Attendance,attendanceRoutes.js
+GET,/api/attendance/member/{id},회원별 출석 조회,Attendance,attendanceRoutes.js
+POST,/api/diet,식단 등록,Diet,dietRoutes.js
+GET,/api/diet,전체 식단 조회 (필터),Diet,dietRoutes.js
+GET,/api/diet/member/{id},회원별 식단 조회,Diet,dietRoutes.js
